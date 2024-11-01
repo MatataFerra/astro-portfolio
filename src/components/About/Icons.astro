@@ -1,0 +1,37 @@
+---
+import Diploma from "@components/icons/Diploma.astro"
+import Children from "@components/icons/Children.astro"
+import Drink from "@components/icons/Drink.astro"
+import Travel from "@components/icons/Travel.astro"
+
+const ICON_PROPS = {
+	width: 24,
+	height: 24,
+	fill: "#333",
+}
+---
+
+<div class="about-item">
+	<Drink width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
+	<p>Gin Tonic Lover</p>
+</div>
+<div class="about-item">
+	<Travel width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
+	<p>I love travel</p>
+</div>
+<div class="about-item">
+	<Children width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
+	<p>I have 3 nephews and 4 nieces</p>
+</div>
+<div class="about-item">
+	<Diploma width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
+	<p>I have a degree in Human Resources, but I love programming</p>
+</div>
+
+<style>
+	.about-item {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+</style>

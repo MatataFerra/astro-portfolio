@@ -1,0 +1,68 @@
+---
+import Github from "@components/icons/Github.astro"
+import Linkedin from "@components/icons/Linkedin.astro"
+import Logo from "@components/Logo/Logo.astro"
+import IconWithLink from "@components/Sidebar/IconWithLink.astro"
+---
+
+<section class="container">
+	<div class="bar-container">
+		<div class="bar"></div>
+		<div class="bar2"></div>
+	</div>
+	<div class="icons-container">
+		<Logo />
+		<div class="icons-svg">
+			<IconWithLink href="https://github.com/MatataFerra">
+				<Github cssClass="svg" />
+			</IconWithLink>
+
+			<IconWithLink href="https://www.linkedin.com/in/matiasgf/">
+				<Linkedin cssClass="svg" />
+			</IconWithLink>
+		</div>
+	</div>
+</section>
+
+<style>
+	.container {
+		width: 90%;
+		margin: 0 auto;
+		padding: 1rem;
+	}
+
+	.bar-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 1rem 0;
+	}
+
+	.bar {
+		border-top: 0.5rem solid var(--color-red);
+		width: 50%;
+	}
+
+	.bar2 {
+		border-top: 0.5rem solid var(--color-black);
+		width: 50%;
+	}
+
+	.svg {
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+	}
+
+	.icons-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.icons-svg {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+	}
+</style>

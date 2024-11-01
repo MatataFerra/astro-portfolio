@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets"
+import Icons from "@components/About/Icons.astro"
+import { Tell } from "@components/About/Tell"
+---
+
+<section class="main">
+	<div class="pic-container">
+		<div class="pic">
+			<Image class="image" src="/mock.jpg" alt="about-me" width={300} height={500} />
+		</div>
+		<div class="about">
+			<h2>About Me</h2>
+			<Icons />
+		</div>
+		<Tell client:load />
+	</div>
+</section>
+
+<style>
+	.main {
+		width: 70%;
+		margin: 5rem auto;
+	}
+
+	.pic-container {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-gap: 1rem;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		background-color: var(--background-color-panel);
+	}
+
+	.pic {
+		width: 300px;
+		height: auto;
+		padding: 1rem;
+	}
+
+	.image {
+		border-radius: 10px;
+	}
+
+	.about {
+		padding: 1rem;
+		margin-top: 1rem;
+
+		h2 {
+			margin-bottom: 1rem;
+		}
+	}
+
+	@media screen and (max-width: var(--breakpoint-md)) {
+		.main {
+			width: 100%;
+		}
+
+		.pic-container {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media screen and (max-width: var(--breakpoint-xs)) {
+		.pic {
+			width: 250px;
+			height: 400px;
+		}
+	}
+</style>

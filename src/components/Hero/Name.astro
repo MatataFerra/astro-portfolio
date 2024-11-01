@@ -1,0 +1,151 @@
+<div class="header" role="heading">
+	<span class="draggable">M</span>
+	<span class="draggable">a</span>
+	<span class="draggable">t</span>
+	<span class="draggable">i</span>
+	<span class="draggable">a</span>
+	<span class="draggable">s</span>
+	<div style="margin-right: 2rem;"></div>
+	<span class="draggable">F</span>
+	<span class="draggable">e</span>
+	<span class="draggable">r</span>
+	<span class="draggable">r</span>
+	<span class="draggable">a</span>
+	<span class="draggable">r</span>
+	<span class="draggable">o</span>
+
+	<div class="button-container hide">
+		<button type="button" id="reset">reset</button>
+	</div>
+</div>
+
+<script>
+	import { $$, $ } from "@lib/helpers/query-selector"
+	import interact from "interactjs"
+
+	const $buttonReset = $("#reset")
+	const $buttonContainer = $(".button-container")
+
+	function resetLetters() {
+		const $$letters = $$(".draggable")
+
+		if (!$$letters) return
+
+		for (const letter of $$letters) {
+			const hasTransform = letter.hasAttribute("style")
+
+			if (hasTransform) {
+				letter.style.transition = "all 0.5s ease-in"
+				letter.style.transform = "translate(0px, 0px)"
+				letter.setAttribute("data-x", "0")
+				letter.setAttribute("data-y", "0")
+				$buttonContainer?.classList.replace("show", "hide")
+			}
+		}
+	}
+
+	$buttonReset?.addEventListener("click", (e: MouseEvent) => {
+		resetLetters()
+	})
+
+	interact(".draggable")
+		.styleCursor(false)
+		.draggable({
+			modifiers: [
+				interact.modifiers.restrictRect({
+					endOnly: true,
+				}),
+			],
+			// enable autoScroll
+			autoScroll: true,
+
+			listeners: {
+				// call this function on every dragmove event
+				move: dragMoveListener,
+			},
+		})
+
+	function dragMoveListener(event: any) {
+		let target = event.target
+
+		let x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx
+		let y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy
+
+		target.style.transform = "translate(" + x + "px, " + y + "px)"
+		target.style.transition = "none"
+
+		target.setAttribute("data-x", x)
+		target.setAttribute("data-y", y)
+
+		if ($buttonContainer?.classList.contains("show")) return
+
+		$buttonContainer?.classList.replace("hide", "show")
+	}
+</script>
+
+<style>
+	.header {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		position: relative;
+		margin: 2rem 0 0 0;
+	}
+
+	.show {
+		visibility: visible;
+	}
+
+	.hide {
+		visibility: hidden;
+	}
+
+	.blank {
+		font-size: 4.5rem;
+		user-select: none;
+	}
+
+	.header > span {
+		font-size: 4.5rem;
+		line-height: 1;
+		font-weight: 700;
+		text-align: center;
+		cursor: grab;
+		user-select: none;
+		touch-action: none;
+
+		&:active {
+			cursor: grabbing;
+		}
+	}
+
+	.h1 {
+		margin-top: 2rem;
+		margin-left: 2rem;
+		margin-bottom: 0;
+		min-height: 120px;
+	}
+
+	.button-container {
+		display: flex;
+		justify-content: end;
+		flex-direction: column;
+		position: absolute;
+		bottom: -25%;
+		right: 20%;
+		transition: all 0.3s ease-in;
+	}
+
+	#reset {
+		appearance: none;
+		background-color: var(--color-primary);
+		border: 1px solid var(--color-gray);
+		border-radius: 10px;
+		padding: 0.25rem 0.75rem;
+		cursor: pointer;
+
+		&:hover {
+			filter: brightness(95%);
+		}
+	}
+</style>

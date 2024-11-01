@@ -1,50 +1,146 @@
 ---
+import "./variables.css"
 interface Props {
-	title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="description" content="Matias Ferraro - Crafting sites from dreams" />
+		<meta name="og:title" content="Matias Ferraro - Crafting sites from dreams" />
+		<meta name="og:description" content="Crafting sites from dreams" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	</head>
 	<body>
-		<slot />
+		<main class="main-layout">
+			<section class="section-layout">
+				<slot />
+			</section>
+		</main>
 	</body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+	//------------------------------
+//---- Variables ---------------
+//------------------------------
+
+	@font-face {
+		font-family: "Mark Pro";
+		src: url("/assets/fonts/Mark-Pro.ttf");
+		font-weight: 400;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
+
+	@font-face {
+		font-family: "Mark Pro";
+		src: url("/assets/fonts/MarkPro-Medium.ttf");
+		font-weight: 500;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	@font-face {
+		font-family: "Mark Pro";
+		src: url("/assets/fonts/Mark-Pro-Bold.ttf");
+		font-weight: 600;
+	}
+
+	html,
+	body {
+		padding: 0rem;
+		margin: 0;
+		font-family: "Mark Pro", sans-serif;
+		overflow-x: hidden;
+	}
+
+	body {
+		background-color: var(--background-color);
+	}
+
+	h1,
+	h2 {
+		margin: 0;
+	}
+
+	h1,
+	h2,
+	p,
+	a,
+	span,
+	small,
+	li {
+		color: var(--font-color);
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.main-layout {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 2rem 0;
+	}
+
+	.section-layout {
+		padding: 2rem;
+		border-radius: 10px;
+		background-color: #85ffbd;
+		background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+		box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
+		margin: 0 auto;
+		max-width: 75rem;
+		width: auto;
+	}
+
+	.transform-on-hover {
+		transition: all 0.2s;
+		&:hover {
+			background-color: var(--color-red);
+			color: var(--color-secundary);
+			box-shadow: 0 1rem 2rem rgb(43 41 41 / 40%);
+			transform: rotate(-5deg) scale(1.1);
+		}
+	}
+
+	.gradient-text-from-blue-to-purple {
+		background: linear-gradient(-45deg, #fc00ff, #00dbde, #fc00ff, #00dbde);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400% 400%;
+		animation: gradient 3s ease infinite;
+	}
+
+	@media screen and (max-width: var(--breakpoint-md)) {
+		.main-layout {
+			padding: 0;
+		}
+
+		.section-layout {
+			max-width: auto;
+			width: 100dvw;
+			margin: 0;
+		}
+	}
+
+	//------------------------------
+//---- Animations --------------
+//------------------------------
+
+@keyframes gradient {
+		0% {
+			background-position: 0 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0 50%;
+		}
 	}
 </style>

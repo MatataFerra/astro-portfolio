@@ -1,0 +1,29 @@
+---
+import IconWithLink from "@components/Sidebar/IconWithLink.astro"
+import Github from "@components/icons/Github.astro"
+import Linkedin from "@components/icons/Linkedin.astro"
+---
+
+<div class="container">
+	<IconWithLink href="https://github.com/MatataFerra">
+		<Github cssClass="svg" colorFill="#272727" />
+	</IconWithLink>
+
+	<IconWithLink href="https://www.linkedin.com/in/matiasgf/">
+		<Linkedin cssClass="svg" colorFill="#272727" />
+	</IconWithLink>
+</div>
+
+<style>
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.svg {
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+	}
+</style>

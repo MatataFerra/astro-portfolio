@@ -1,0 +1,48 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1284 332" width="1284" height="332">
+	<title>banner</title>
+	<style>
+		.s0 { fill: #b3d0f8 } 
+		.s1 { fill: #ffffff } 
+		.s2 { fill: #3eafe7 } 
+		.s3 { fill: #fb8c77 } 
+		.s4 { fill: #ef646d } 
+		.s5 { fill: #e23563 } 
+	</style>
+	<g id="&lt;Group&gt;">
+		<path id="&lt;Path&gt;" class="s0" d="m1283.9 331.9h-1283.8v-331.1h1283.8z"/>
+	</g>
+	<g id="&lt;Group&gt;">
+		<path id="&lt;Path&gt;" class="s1" d="m407.1 283.1h-338.1c-5.3 0-9.6-4.3-9.6-9.6v-168.4c0-5.4 4.3-9.7 9.6-9.7h338.1c5.3 0 9.6 4.3 9.6 9.7v168.4c0 5.3-4.3 9.6-9.6 9.6z"/>
+	</g>
+	<g id="&lt;Group&gt;">
+		<g id="&lt;Group&gt;">
+			<path id="&lt;Compound Path&gt;" class="s2" d="m135.6 157.3h-23.7v-8.6h57.6v8.6h-23.8v69.3h-10.1z"/>
+		</g>
+		<g id="&lt;Group&gt;">
+			<path id="&lt;Compound Path&gt;" class="s2" d="m218.5 190.1h-30.2v28h33.7v8.5h-43.8v-77.9h42v8.5h-31.9v24.6h30.2z"/>
+		</g>
+		<g id="&lt;Group&gt;">
+			<path id="&lt;Compound Path&gt;" class="s2" d="m277.7 226.6l-10-17.2c-4-6.6-6.5-10.9-9-15.4h-0.2c-2.2 4.5-4.4 8.7-8.4 15.5l-9.4 17.1h-11.5l23.8-39.4-22.9-38.5h11.7l10.2 18.3c2.9 5.1 5.1 9 7.2 13.1h0.3c2.2-4.6 4.2-8.2 7.1-13.1l10.6-18.3h11.6l-23.7 37.9 24.2 40z"/>
+		</g>
+		<g id="&lt;Group&gt;">
+			<path id="&lt;Compound Path&gt;" class="s2" d="m316.7 157.3h-23.6v-8.6h57.6v8.6h-23.8v69.3h-10.2z"/>
+		</g>
+	</g>
+	<g id="&lt;Group&gt;">
+		<g id="&lt;Group&gt;">
+			<g id="&lt;Group&gt;">
+				<path id="&lt;Path&gt;" class="s3" d="m1085.7 289h-178.8l89-109.8z"/>
+			</g>
+		</g>
+		<g id="&lt;Group&gt;">
+			<g id="&lt;Group&gt;">
+				<path id="&lt;Path&gt;" class="s4" d="m1200 289h-178.8l88.9-155.3z"/>
+			</g>
+		</g>
+		<g id="&lt;Group&gt;">
+			<g id="&lt;Group&gt;">
+				<path id="&lt;Path&gt;" class="s5" d="m1072.7 135.3c0 10.5-8.5 18.9-18.9 18.9-10.4 0-18.9-8.4-18.9-18.9 0-10.4 8.5-18.9 18.9-18.9 10.4 0 18.9 8.5 18.9 18.9z"/>
+			</g>
+		</g>
+	</g>
+</svg>

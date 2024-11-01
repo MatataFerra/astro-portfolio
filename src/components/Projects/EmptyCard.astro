@@ -1,0 +1,22 @@
+---
+import Add from "@components/icons/Add.astro"
+---
+
+<div class="card-empty">
+	<Add width={24} height={24} />
+</div>
+
+<style>
+	.card-empty {
+		height: 300px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--color-primary);
+		border-radius: 10px;
+		transition: all 0.3s ease-in-out;
+		border: 5px dashed var(--color-light-gray);
+		cursor: pointer;
+	}
+</style>

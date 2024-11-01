@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components"
+
+const SIZE = 48
+---
+
+<h2 class="h2">I build sites with</h2>
+<div class="container">
+	<Icon name="devicon:typescript" size={SIZE} />
+	<Icon name="devicon:nextjs" size={SIZE} />
+	<Icon name="devicon:astro" size={SIZE} />
+	<Icon name="logos:react-query-icon" size={SIZE} />
+	<Icon name="devicon:redux" size={SIZE} />
+	<Icon name="zustand" size={SIZE} />
+	<Icon name="logos:prisma" size={SIZE} />
+	<Icon name="logos:nodejs" size={SIZE} />
+	<Icon name="turso" size={SIZE} />
+</div>
+
+<style>
+	.h2 {
+		text-align: center;
+		font-size: var(--h2-size);
+		margin: 2rem 0;
+	}
+
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		justify-content: center;
+		width: 70%;
+		margin: 0 auto;
+	}
+
+	[data-icon="react"] {
+		font-size: 2rem;
+		color: #030303;
+	}
+</style>

@@ -1,0 +1,83 @@
+---
+import Logo from "@components/Logo/Logo.astro"
+import Email from "@components/icons/Email.astro"
+import Moon from "@components/icons/Moon.astro"
+---
+
+<nav class="navbar">
+	<Logo />
+	<section class="section-2">
+		<article class="article">
+			<div class="contact transform-on-hover">
+				<Email width={20} />
+				<a class="email">
+					<span class="text">matias.agf@gmail.com</span>
+				</a>
+			</div>
+			<Moon />
+		</article>
+
+		<ul class="ul" id="ul">
+			<li>Home</li>
+			<li>Projects</li>
+			<li>Articles</li>
+		</ul>
+	</section>
+</nav>
+
+<style>
+	.navbar {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: center;
+	}
+
+	.section-1 {
+		margin-right: 3rem;
+	}
+
+	.section-2 {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.article {
+		display: flex;
+		align-items: center;
+		gap: 7rem;
+	}
+
+	.contact {
+		display: flex;
+		gap: 0.5rem;
+		padding: 0.2rem 0.5rem;
+		font-weight: 500;
+	}
+
+	.email {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.ul {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		list-style: none;
+		margin: 0;
+
+		li {
+			padding: 0.2rem 0.5rem;
+			cursor: pointer;
+		}
+	}
+</style>
+
+<script>
+	const list = document.querySelectorAll("#ul li")
+
+	for (const child of list) {
+		child.classList.add("transform-on-hover")
+	}
+</script>
