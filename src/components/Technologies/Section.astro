@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components"
 
-const SIZE = 48
+const SIZE = 56
 ---
 
 <h2 class="h2">I build sites with</h2>
@@ -26,15 +26,23 @@ const SIZE = 48
 
 	.container {
 		display: flex;
-		flex-wrap: wrap;
 		gap: 2rem;
 		justify-content: center;
 		width: 70%;
 		margin: 0 auto;
 	}
 
-	[data-icon="react"] {
-		font-size: 2rem;
-		color: #030303;
+	@media screen and (orientation: landscape) and (max-width: 980px) {
+		.container {
+			flex-wrap: wrap;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.container {
+			width: 100%;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
 	}
 </style>

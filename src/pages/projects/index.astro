@@ -1,0 +1,17 @@
+---
+import { List } from "@components/Projects/Page/List"
+import Title from "@components/Title/Title.astro"
+import Layout from "@layouts/Layout.astro"
+---
+
+<Layout title="Matias Ferraro">
+	<Title title="Projects" />
+	<List client:load />
+</Layout>
+
+<style>
+	.h2 {
+		font-size: 48px;
+		margin: 3rem 0;
+	}
+</style>

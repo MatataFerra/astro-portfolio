@@ -11,24 +11,31 @@ const ICON_PROPS = {
 }
 ---
 
-<div class="about-item">
-	<Drink width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
-	<p>Gin Tonic Lover</p>
-</div>
-<div class="about-item">
-	<Travel width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
-	<p>I love travel</p>
-</div>
-<div class="about-item">
-	<Children width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
-	<p>I have 3 nephews and 4 nieces</p>
-</div>
-<div class="about-item">
-	<Diploma width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
-	<p>I have a degree in Human Resources, but I love programming</p>
-</div>
+<section>
+	<div class="about-item">
+		<Drink width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
+		<p>Gin Tonic Lover</p>
+	</div>
+	<div class="about-item">
+		<Travel width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
+		<p>I love travel</p>
+	</div>
+	<div class="about-item">
+		<Children width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
+		<p>I have 3 nephews and 4 nieces</p>
+	</div>
+	<div class="about-item">
+		<Diploma width={ICON_PROPS.width} height={ICON_PROPS.height} fill={ICON_PROPS.fill} />
+		<p>I have a degree in Human Resources, but I love programming</p>
+	</div>
+</section>
 
 <style>
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
 	.about-item {
 		display: flex;
 		align-items: center;

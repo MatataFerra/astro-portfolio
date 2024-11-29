@@ -4,7 +4,7 @@ import Github from "@components/icons/Github.astro"
 import Linkedin from "@components/icons/Linkedin.astro"
 ---
 
-<div class="container">
+<section class="container md:flex hidden">
 	<IconWithLink href="https://github.com/MatataFerra">
 		<Github cssClass="svg" colorFill="#272727" />
 	</IconWithLink>
@@ -12,11 +12,10 @@ import Linkedin from "@components/icons/Linkedin.astro"
 	<IconWithLink href="https://www.linkedin.com/in/matiasgf/">
 		<Linkedin cssClass="svg" colorFill="#272727" />
 	</IconWithLink>
-</div>
+</section>
 
 <style>
 	.container {
-		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		gap: 1rem;
@@ -25,5 +24,17 @@ import Linkedin from "@components/icons/Linkedin.astro"
 	.svg {
 		cursor: pointer;
 		transition: all 0.2s ease-in-out;
+	}
+
+	@media screen and (max-width: 768px) {
+		.container {
+			display: none;
+		}
+	}
+
+	@media screen and (orientation: landscape) and (max-width: 980px) {
+		.container {
+			display: none;
+		}
 	}
 </style>

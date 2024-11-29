@@ -51,7 +51,7 @@ import { Tell } from "@components/About/Tell"
 		}
 	}
 
-	@media screen and (max-width: var(--breakpoint-md)) {
+	@media screen and (max-width: 768px) {
 		.main {
 			width: 100%;
 		}
@@ -61,7 +61,13 @@ import { Tell } from "@components/About/Tell"
 		}
 	}
 
-	@media screen and (max-width: var(--breakpoint-xs)) {
+	@media screen and (orientation: landscape) and (max-width: 980px) {
+		.main {
+			width: 85%;
+		}
+	}
+
+	@media screen and (max-width: 320px) {
 		.pic {
 			width: 250px;
 			height: 400px;

@@ -5,6 +5,8 @@ import solidJs from "@astrojs/solid-js"
 
 import icon from "astro-icon"
 
+import tailwind from "@astrojs/tailwind"
+
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
@@ -13,7 +15,9 @@ export default defineConfig({
 			include: {
 				devicon: ["*"],
 				logos: ["*"],
+				ci: ["*"],
 			},
 		}),
+		tailwind(),
 	],
 })

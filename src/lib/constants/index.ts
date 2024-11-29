@@ -8,9 +8,18 @@ const PROJECTS_NAMES = {
 	casual: "casual",
 } as const
 
+export const COVER_PROJECTS_IMAGE = {
+	[PROJECTS_NAMES.casual]:
+		"https://res.cloudinary.com/docq8rbdu/image/upload/v1731449632/portfolio-next/bugilviepdkgfv58tdxq.webp",
+	[PROJECTS_NAMES.w11]:
+		"https://res.cloudinary.com/docq8rbdu/image/upload/v1731448862/portfolio-next/kvnmpir6j6auibtnwyoi.webp",
+	[PROJECTS_NAMES.iql]:
+		"https://res.cloudinary.com/docq8rbdu/image/upload/v1731448862/portfolio-next/porrd5ynxipbyuzksywj.webp",
+}
+
 export const PROJECTS_IMAGE = {
 	[PROJECTS_NAMES.casual]:
-		"https://res.cloudinary.com/docq8rbdu/image/upload/v1730423971/vkadulb2okthutiyl1vn.png",
+		"https://res.cloudinary.com/docq8rbdu/image/upload/v1731444834/portfolio-next/a7ep5etnx6zixfwhoidr.png",
 	[PROJECTS_NAMES.w11]:
 		"https://res.cloudinary.com/docq8rbdu/image/upload/v1662945824/portfolio-next/d6p32yuzvjsjdtx9tm6p.png",
 	[PROJECTS_NAMES.iql]:
@@ -50,14 +59,14 @@ export const PROJECTS_IMAGES_DESCRIPTION = [
 	},
 	{
 		src: PROJECTS_IMAGE.w11,
-		text: "Project build with *React*, Styled Components, *Redux* for the state management of the site, and MongoDB. This project is a clone of the popular SO Windows 11. It allows you to use apps like the ToDo app and Spotify.",
+		text: "Project build with *React*, Styled Components, *Redux* for the state management of the site, and MongoDB. This project is a clone of the popular SO Windows 11.",
 		title: "Windows 11 Clone",
 		link: PROJECTS_URL.w11,
 	},
 
 	{
 		src: PROJECTS_IMAGE.iql,
-		text: "It is a blog site, to write articles. The user can read the articles and give likes. The application has a login system and a dashboard for the administrator. Admin can create, edit and delete articles. The admin can also see the users who like the articles. The app was built with *NextJS*, Context API for site state management, SASS modules, and MongoDB.",
+		text: "It is a blog site, to write articles. The user can read the articles and give likes. The application has a login system and a dashboard for the administrator. The app was built with *NextJS*, and *MongoDB*.",
 		title: "Inchequeable Blog Site",
 		link: PROJECTS_URL.iql,
 	},

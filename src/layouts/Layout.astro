@@ -1,16 +1,20 @@
 ---
+import { Navbar } from "@components/Navbar/Navbar"
 import "./variables.css"
 interface Props {
 	title: string
 }
-
+type Routes = "/" | "/projects"
 const { title } = Astro.props
+
+const url = Astro.url.pathname as Routes
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<title>{title}</title>
+		<meta name="viewport" content="width=device-width" />
 		<meta name="description" content="Matias Ferraro - Crafting sites from dreams" />
 		<meta name="og:title" content="Matias Ferraro - Crafting sites from dreams" />
 		<meta name="og:description" content="Crafting sites from dreams" />
@@ -19,6 +23,7 @@ const { title } = Astro.props
 	<body>
 		<main class="main-layout">
 			<section class="section-layout">
+				<Navbar url={url} client:load />
 				<slot />
 			</section>
 		</main>
@@ -27,8 +32,8 @@ const { title } = Astro.props
 
 <style is:global>
 	//------------------------------
-//---- Variables ---------------
-//------------------------------
+	//---- Variables ---------------
+	//------------------------------
 
 	@font-face {
 		font-family: "Mark Pro";
@@ -113,17 +118,27 @@ const { title } = Astro.props
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-size: 400% 400%;
-		animation: gradient 3s ease infinite;
 	}
 
-	@media screen and (max-width: var(--breakpoint-md)) {
+	@media screen and (max-width: 768px) {
 		.main-layout {
 			padding: 0;
 		}
 
 		.section-layout {
-			max-width: auto;
-			width: 100dvw;
+			width: 100%;
+			margin: 0;
+			border-radius: 0px;
+		}
+	}
+
+	@media screen and (orientation: landscape) and (max-width: 980px) {
+		.main-layout {
+			padding: 0;
+		}
+
+		.section-layout {
+			width: 100%;
 			margin: 0;
 		}
 	}

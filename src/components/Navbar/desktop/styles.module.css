@@ -1,0 +1,57 @@
+.navbar-desktop {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+}
+
+.section-1 {
+	margin-right: 3rem;
+}
+
+.section-2 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.article {
+	display: flex;
+	align-items: center;
+	gap: 7rem;
+}
+
+.contact {
+	display: flex;
+	gap: 0.5rem;
+	padding: 0.2rem 0.5rem;
+	font-weight: 500;
+}
+
+.email {
+	text-decoration: none;
+	color: inherit;
+}
+
+.ul {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	list-style: none;
+	margin: 0;
+
+	li {
+		padding: 0.2rem 0.5rem;
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.navbar-desktop {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}

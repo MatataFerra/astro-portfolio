@@ -1,20 +1,23 @@
-<div class="header" role="heading">
-	<span class="draggable">M</span>
-	<span class="draggable">a</span>
-	<span class="draggable">t</span>
-	<span class="draggable">i</span>
-	<span class="draggable">a</span>
-	<span class="draggable">s</span>
-	<div style="margin-right: 2rem;"></div>
-	<span class="draggable">F</span>
-	<span class="draggable">e</span>
-	<span class="draggable">r</span>
-	<span class="draggable">r</span>
-	<span class="draggable">a</span>
-	<span class="draggable">r</span>
-	<span class="draggable">o</span>
+<div class="header relative" role="heading">
+	<section>
+		<span class="draggable">M</span>
+		<span class="draggable">a</span>
+		<span class="draggable">t</span>
+		<span class="draggable">i</span>
+		<span class="draggable">a</span>
+		<span class="draggable">s</span>
+	</section>
+	<section>
+		<span class="draggable">F</span>
+		<span class="draggable">e</span>
+		<span class="draggable">r</span>
+		<span class="draggable">r</span>
+		<span class="draggable">a</span>
+		<span class="draggable">r</span>
+		<span class="draggable">o</span>
+	</section>
 
-	<div class="button-container hide">
+	<div class="button-container hide z-50">
 		<button type="button" id="reset">reset</button>
 	</div>
 </div>
@@ -25,6 +28,8 @@
 
 	const $buttonReset = $("#reset")
 	const $buttonContainer = $(".button-container")
+
+	// Drag letters
 
 	function resetLetters() {
 		const $$letters = $$(".draggable")
@@ -53,15 +58,16 @@
 		.draggable({
 			modifiers: [
 				interact.modifiers.restrictRect({
+					restriction: "#hero-container",
 					endOnly: true,
 				}),
 			],
-			// enable autoScroll
-			autoScroll: true,
+			inertia: true,
 
 			listeners: {
 				// call this function on every dragmove event
 				move: dragMoveListener,
+				// end: () => setTimeout(() => resetLetters(), 500),
 			},
 		})
 
@@ -90,6 +96,14 @@
 		width: 100%;
 		position: relative;
 		margin: 2rem 0 0 0;
+		gap: 2rem;
+	}
+
+	.header > section {
+		display: flex;
+		justify-content: center;
+		width: fit-content;
+		position: relative;
 	}
 
 	.show {
@@ -105,8 +119,8 @@
 		user-select: none;
 	}
 
-	.header > span {
-		font-size: 4.5rem;
+	.header > section > span {
+		font-size: 7rem;
 		line-height: 1;
 		font-weight: 700;
 		text-align: center;
@@ -132,7 +146,7 @@
 		flex-direction: column;
 		position: absolute;
 		bottom: -25%;
-		right: 20%;
+		right: 10%;
 		transition: all 0.3s ease-in;
 	}
 
@@ -143,9 +157,34 @@
 		border-radius: 10px;
 		padding: 0.25rem 0.75rem;
 		cursor: pointer;
+		width: fit-content;
 
 		&:hover {
 			filter: brightness(95%);
+		}
+	}
+	.draggable {
+		position: relative;
+	}
+
+	@media screen and (max-width: 768px) {
+		.header {
+			flex-direction: column;
+			align-items: center;
+			margin: 4rem 0;
+		}
+		.header > section > span {
+			font-size: 6rem;
+		}
+	}
+
+	@media screen and (orientation: landscape) and (max-width: 980px) {
+		.header {
+			width: 100%;
+			gap: 2rem;
+		}
+		.header > section > span {
+			font-size: 6rem;
 		}
 	}
 </style>

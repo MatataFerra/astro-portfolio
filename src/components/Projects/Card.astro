@@ -10,44 +10,45 @@ const { imgSrc, href } = Astro.props
 ---
 
 <div class="card">
-	<a target="_blank" rel="noopener noreferrer" class="cardLinks" {href}>
-		<div role="img" aria-labelledby="Project" style={{ backgroundImage: `url(${imgSrc})` }}></div>
+	<a target="_blank" rel="noopener noreferrer" class="link" {href}>
+		<Image
+			role="img"
+			class="img"
+			aria-labelledby="Project"
+			src={imgSrc}
+			alt="Project"
+			width={300}
+			height={300}
+		/>
 	</a>
 </div>
 
 <style>
 	.card {
 		height: 300px;
-		width: 100%;
-		display: flex;
-		overflow: hidden;
 		position: relative;
-		align-items: flex-end;
-		text-align: center;
-		background-color: var(--color-primary);
-		color: var(--color-black);
+		width: 100%;
 		border-radius: 10px;
 		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 		transition: all 0.3s ease-in-out;
+		overflow: hidden;
 
+		&::after {
+			position: absolute;
+			content: "";
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+			opacity: 0.8;
+			z-index: 1;
+		}
 		&:hover {
 			transform: scale(1.025);
 		}
-		a div {
-			background-size: contain;
-			background-repeat: no-repeat;
-			background-position: center;
-			width: 100%;
-			height: 100%;
-			transition: all 0.5s ease-in-out;
-
-			&:hover {
-				transform: scale(1.05) scaleY(1.075);
-			}
-		}
 	}
 
-	.cardLinks {
+	.link {
 		display: flex;
 		background-color: var(--color-primary);
 		width: 100%;
@@ -58,42 +59,21 @@ const { imgSrc, href } = Astro.props
 		justify-content: center;
 		cursor: pointer;
 		text-decoration: none;
-
-		.image {
-			display: flex;
-			transform: rotate(360deg);
-		}
+		border-radius: 10px;
+		overflow: hidden;
 	}
 
-	.cardLinkContainer {
-		display: flex;
-		align-items: center;
+	.card:hover a img {
+		transform: scale(1.65);
 	}
 
-	.card-empty {
+	.card a img {
+		object-fit: contain;
 		height: 300px;
 		width: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: var(--color-primary);
-		border-radius: 10px;
 		transition: all 0.3s ease-in-out;
-		border: 5px dashed var(--color-light-gray);
-		cursor: pointer;
-	}
-
-	.goto {
-		font-size: 0;
-		color: var(--color-light-gray);
-	}
-
-	.gotoSpace {
-		margin-right: 0.2rem;
-	}
-
-	.gotoSpaceL {
-		margin-left: 0.2rem;
+		z-index: 10;
+		transform: scale(1.3);
 	}
 
 	@keyframes moveAndRotateIcon {

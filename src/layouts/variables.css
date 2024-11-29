@@ -14,8 +14,7 @@
 	--color-vue-gradient-end: #647eff;
 	--color-red: #ec5354;
 	--color-white-transparent: rgba(255, 255, 255, 0.563);
-	
-	
+
 	/* Breakpoints */
 	--breakpoint-xs: 320px;
 	--breakpoint-sm: 576px;
@@ -23,15 +22,14 @@
 	--breakpoint-lg: 992px;
 	--breakpoint-xl: 1280px;
 	--breakpoint-xxl: 1400px;
-	
+
 	/* Fonts Sizes */
 	--h2-size: 52px;
 	--font-color: #222;
 
 	/* Bg */
-	--dark-background-color:#222222;
+	--dark-background-color: #222222;
 	--dark-background-color-panel: #161616;
-  --background-color:#efefef;
+	--background-color: #efefef;
 	--background-color-panel: #fff;
-
 }
