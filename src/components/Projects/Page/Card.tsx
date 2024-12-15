@@ -18,10 +18,10 @@ function BoldText({ text }: BoldProps) {
 
 		if (!strongWords) return text
 
-		return text.split(/\*(.*?)\*/g).map((segment, index) => {
+		return text.split(/\*(.*?)\*/g).map((segment) => {
 			const isStrong = strongWords.includes(`*${segment}*`)
 			if (isStrong) {
-				return <strong class={`${styles.strong}`}>{segment.trimStart()}</strong>
+				return <strong className={`${styles.strong}`}>{segment.trimStart()}</strong>
 			}
 			return segment
 		})
@@ -34,12 +34,12 @@ export function Card({ imgSrc, text, alternate, linkToProject }: Props) {
 	const device = useDevice()
 
 	return (
-		<div class={styles["image-container"]}>
-			<img src={imgSrc} width={500} height={300} alt="Projects" class={styles.image} />
+		<div className={styles["image-container"]}>
+			<img src={imgSrc} width={500} height={300} alt="Projects" className={styles.image} />
 			<article
-				class={`${alternate && device() !== "mobile" && styles["order-1"]} ${linkToProject && styles["text-container"]}`}
+				className={`${alternate && device !== "mobile" && styles["order-1"]} ${linkToProject && styles["text-container"]}`}
 			>
-				<p class={`${styles["project-text"] ?? ""}`}>
+				<p className={`${styles["project-text"] ?? ""}`}>
 					<BoldText text={text} />
 				</p>
 				{linkToProject && (
@@ -47,7 +47,7 @@ export function Card({ imgSrc, text, alternate, linkToProject }: Props) {
 						href={linkToProject}
 						target="_blank"
 						rel="noopener noreferrer"
-						class={styles["project-link"]}
+						className={styles["project-link"]}
 					>
 						Visit Project
 					</a>

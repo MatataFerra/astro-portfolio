@@ -9,6 +9,6 @@
 			"@css/*": ["./src/layouts/variables.css"]
 		},
 		"jsx": "preserve",
-		"jsxImportSource": "solid-js"
+		"jsxImportSource": "react"
 	}
 }

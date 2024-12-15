@@ -1,7 +1,7 @@
-import { createMemo } from "solid-js"
+import { useMemo } from "react"
 
 export const useText = (text: string, maxLength: () => number) => {
-	const textMemorized = createMemo(() => {
+	const textMemorized = useMemo(() => {
 		const limit = maxLength()
 		const checkLimit = text.split(".").length > limit ? limit : text.split(".").length
 		const textToshow = text
@@ -21,7 +21,7 @@ export const useText = (text: string, maxLength: () => number) => {
 			}, "")
 
 		return textToshow
-	})
+	}, [text?.split, maxLength])
 
 	return textMemorized
 }

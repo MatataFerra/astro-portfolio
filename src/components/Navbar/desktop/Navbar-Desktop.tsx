@@ -28,15 +28,15 @@ export function NavbarDesktop({ url }: Props) {
 	const device = useDevice()
 
 	return (
-		<nav class={styles["navbar-desktop"]}>
+		<nav className={styles["navbar-desktop"]}>
 			<Logo />
-			<section class={styles["section-2"]}>
-				{device() === "desktop" ? (
-					<article class={styles.article}>
-						<div class={`${styles.contact} transform-on-hover`}>
+			<section className={styles["section-2"]}>
+				{device === "desktop" ? (
+					<article className={styles.article}>
+						<div className={`${styles.contact} transform-on-hover`}>
 							<Email width={20} />
-							<a class={styles.email} href="mailto:matias.agf@gmail.com">
-								<span class="text">matias.agf@gmail.com</span>
+							<a className={styles.email} href="mailto:matias.agf@gmail.com">
+								<span className="text">matias.agf@gmail.com</span>
 							</a>
 						</div>
 					</article>

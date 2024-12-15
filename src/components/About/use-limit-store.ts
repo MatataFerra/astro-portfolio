@@ -1,4 +1,4 @@
-import { useContext } from "solid-js"
+import { useContext } from "react"
 import { TellContext } from "@components/About/Provider"
 
 export function useTellStore() {

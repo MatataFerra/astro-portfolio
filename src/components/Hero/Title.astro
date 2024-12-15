@@ -1,37 +1,28 @@
 ---
+import Canvas from "@components/Hero/react/Canvas"
 import Name from "@components/Hero/Name.astro"
-import Subtitle from "@components/Hero/Subtitle.astro"
 ---
 
-<div class="div" id="hero-container">
-	<Name />
-	<Subtitle />
-	<p class="p">
-		I'm a...<br /> boring way to start my profile... I save you the pain, keep enjoying
-	</p>
-</div>
+<section class="hero-container" id="hero-container">
+	<div class="block md:hidden">
+		<Name />
+	</div>
+	<div class="relative h-[200px] 2xl:h-[300px] w-full hidden md:block">
+		<Canvas client:only="react" />
+	</div>
+</section>
 
 <style>
-	.div {
+	.hero-container {
 		display: grid;
 		grid-template-rows: repeat(3, auto);
 		padding: 1rem 0;
 		align-self: center;
 	}
 
-	.p {
-		font-size: 14px;
-		text-align: center;
-	}
-
 	@media screen and (max-width: 320px) ) {
-		.div {
+		.hero-container {
 			justify-items: center;
-		}
-
-		.p {
-			font-size: 12px;
-			text-align: center;
 		}
 	}
 </style>

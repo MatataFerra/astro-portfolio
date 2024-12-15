@@ -1,7 +1,7 @@
 import { ButtonGroup } from "@components/About/ButtonGroup"
 import { Text } from "@components/About/Text"
 import type { JSX } from "solid-js"
-import styles from "./tell.module.css"
+import styles from "@components/About/tell.module.css"
 import { TellProvider } from "./Provider"
 
 export interface StateButtonClickProps {
@@ -18,14 +18,14 @@ export interface HistoriesProps {
 export const Tell = () => {
 	return (
 		<TellProvider>
-			<div class={styles.history}>
-				<h2 class={styles.h2}>Choose the length of my history</h2>
+			<div className={styles.history}>
+				<h2 className={styles.h2}>Choose the length of my history</h2>
 
-				<div class={styles.buttons}>
+				<div className={styles.buttons}>
 					<ButtonGroup numberOfButtons={5} />
 				</div>
 
-				<div class={styles.buttonLabel}>
+				<div className={styles.buttonLabel}>
 					<span>Short</span>
 					<span>Longest</span>
 				</div>

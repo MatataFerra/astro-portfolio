@@ -1,7 +1,6 @@
 import styles from "@components/About/tell.module.css"
 import { useTellStore } from "@components/About/use-limit-store"
 import { useText } from "@components/About/use-text"
-import { Show } from "solid-js"
 import { ButtonActive } from "./Provider"
 
 const TEXT_HISTORY = `I was born in 1989 in Buenos Aires. Since 2012 I have been intersted in Design with Photoshop & Illustrator. I
@@ -38,16 +37,17 @@ const TEXT_BOUNDARIES: Record<ButtonActive, number> = {
 
 export const Text = ({ cssClass }: BioProps) => {
 	const { buttonActive } = useTellStore()
-	const textToRender = useText(TEXT_HISTORY, () => TEXT_BOUNDARIES[buttonActive()])
+	const textToRender = useText(TEXT_HISTORY, () => TEXT_BOUNDARIES[buttonActive])
 
 	return (
-		<section class={`${cssClass ? styles[cssClass] : ""} ${styles.brief}`}>
-			<p class={`${styles.p}}`}>{textToRender()}</p>
-			<Show when={buttonActive() === ButtonActive.five}>
-				<strong class={styles.strong}>
+		<section className={`${cssClass ? styles[cssClass] : ""} ${styles.brief}`}>
+			<p className={`${styles.p}}`}>{textToRender}</p>
+
+			{buttonActive === ButtonActive.five ? (
+				<strong className={styles.strong}>
 					<a href="mailto:matias.agf@gmail.com">Contact me at: matias.agf@gmail.com</a>
 				</strong>
-			</Show>
+			) : null}
 		</section>
 	)
 }

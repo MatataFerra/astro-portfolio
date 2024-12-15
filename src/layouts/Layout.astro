@@ -31,9 +31,11 @@ const url = Astro.url.pathname as Routes
 </html>
 
 <style is:global>
-	//------------------------------
-	//---- Variables ---------------
-	//------------------------------
+	/*
+	------------------------------
+	--------Variables------------
+	------------------------------
+*/
 
 	@font-face {
 		font-family: "Mark Pro";
@@ -120,6 +122,19 @@ const url = Astro.url.pathname as Routes
 		background-size: 400% 400%;
 	}
 
+	@media screen and (min-width: 1700px) {
+		.main-layout {
+			padding: 0.5rem;
+		}
+
+		.section-layout {
+			width: 100%;
+			margin: 0;
+			border-radius: 0px;
+			max-width: 100%;
+		}
+	}
+
 	@media screen and (max-width: 768px) {
 		.main-layout {
 			padding: 0;
@@ -143,11 +158,13 @@ const url = Astro.url.pathname as Routes
 		}
 	}
 
-	//------------------------------
-//---- Animations --------------
-//------------------------------
+	/*
+	------------------------------
+	--------Animations------------
+	------------------------------
+*/
 
-@keyframes gradient {
+	@keyframes gradient {
 		0% {
 			background-position: 0 50%;
 		}

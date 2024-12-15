@@ -1,24 +1,19 @@
-import { createEffect, createSignal, onCleanup, onMount } from "solid-js"
+import { useEffect, useState } from "react"
 
 export type Device = "desktop" | "mobile" | null
 
 export const useDevice = () => {
-	const [device, setDevice] = createSignal<Device>(null)
+	const [device, setDevice] = useState<Device>(null)
 
 	function handleResize() {
 		setDevice(window.innerWidth <= 767 ? "mobile" : "desktop")
 	}
 
-	onMount(() => {
+	useEffect(() => {
 		handleResize()
-
-		onCleanup(() => {
-			window.removeEventListener("resize", handleResize)
-		})
-	})
-
-	createEffect(() => {
 		window.addEventListener("resize", handleResize)
+
+		return () => window.removeEventListener("resize", handleResize)
 	})
 
 	return device

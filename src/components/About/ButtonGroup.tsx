@@ -1,5 +1,4 @@
-import { For } from "solid-js"
-import styles from "./tell.module.css"
+import styles from "@components/About/tell.module.css"
 import { useTellStore } from "./use-limit-store"
 
 interface ButtonProps {
@@ -17,8 +16,8 @@ export const Button = ({ value }: ButtonProps) => {
 		<button
 			type="button"
 			value={String(value)}
-			class={buttonActive() === value ? styles["button-active"] : styles["button-inactive"]}
-			onClick={(e) => {
+			className={buttonActive === value ? styles["button-active"] : styles["button-inactive"]}
+			onClick={() => {
 				setButtonActive(value)
 			}}
 		/>
@@ -27,10 +26,10 @@ export const Button = ({ value }: ButtonProps) => {
 
 export const ButtonGroup = ({ numberOfButtons = 5 }: ButtonGroupProps) => {
 	return (
-		<div class={styles.buttons}>
-			<For each={Array.from({ length: numberOfButtons }, (_, i) => i)}>
-				{(i) => <Button value={i} />}
-			</For>
+		<div className={styles.buttons}>
+			{Array.from({ length: numberOfButtons }, (_, i) => i).map((value) => (
+				<Button value={value} key={value} />
+			))}
 		</div>
 	)
 }

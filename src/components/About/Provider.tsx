@@ -1,4 +1,4 @@
-import { createContext, createSignal, type Accessor, type JSX } from "solid-js"
+import { createContext, useState } from "react"
 
 interface Props {
 	children: JSX.Element
@@ -13,16 +13,16 @@ export enum ButtonActive {
 }
 
 interface State {
-	buttonActive: Accessor<ButtonActive>
+	buttonActive: ButtonActive
 }
 
 interface Context extends State {
 	setButtonActive: (newState: ButtonActive) => void
 }
-export const TellContext = createContext<Context>()
+export const TellContext = createContext<Context | null>(null)
 
 export function TellProvider(props: Props) {
-	const [buttonActive, setButtonActive] = createSignal(ButtonActive.one)
+	const [buttonActive, setButtonActive] = useState(ButtonActive.one)
 
 	function updateButtonActive(newState: ButtonActive) {
 		setButtonActive(newState)
