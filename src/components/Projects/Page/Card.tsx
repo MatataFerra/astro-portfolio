@@ -1,5 +1,6 @@
 import { useDevice } from "@lib/hooks/use-device"
 import styles from "@components/Projects/Page/styles.module.css"
+import { useCallback } from "react"
 
 interface Props {
 	imgSrc: string
@@ -13,7 +14,7 @@ interface BoldProps {
 }
 
 function BoldText({ text }: BoldProps) {
-	const boldText = () => {
+	const boldCallback = useCallback(() => {
 		const strongWords = text.match(/\*(.*?)\*/g)
 
 		if (!strongWords) return text
@@ -25,9 +26,9 @@ function BoldText({ text }: BoldProps) {
 			}
 			return segment
 		})
-	}
+	}, [text])
 
-	return <>{boldText()}</>
+	return <>{boldCallback()}</>
 }
 
 export function Card({ imgSrc, text, alternate, linkToProject }: Props) {

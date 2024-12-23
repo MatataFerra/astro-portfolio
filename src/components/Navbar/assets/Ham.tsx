@@ -1,5 +1,3 @@
-/** @jsxImportSource solid-js */
-
 export function Ham() {
 	return (
 		// biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>

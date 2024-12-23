@@ -1,6 +1,5 @@
 import { ButtonGroup } from "@components/About/ButtonGroup"
 import { Text } from "@components/About/Text"
-import type { JSX } from "solid-js"
 import styles from "@components/About/tell.module.css"
 import { TellProvider } from "./Provider"
 

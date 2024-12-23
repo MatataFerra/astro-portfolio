@@ -53,14 +53,14 @@ export default function Badge({ maxSpeed = 50, minSpeed = 10, letter = "M", posi
 	)
 
 	// Connect band joints
-	useRopeJoint(fixed, j1, [[-7, 0, 0], [0, 0, 0], 1.5])
-	useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 0.5])
-	useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1.2])
+	useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1.5])
+	useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1])
+	useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1])
 
 	// Connect card to band
 	useSphericalJoint(j3, card, [
 		[0, 0, 0],
-		[0, 0.8, 0],
+		[0, 1, 0],
 	])
 
 	useEffect(() => {
@@ -84,7 +84,7 @@ export default function Badge({ maxSpeed = 50, minSpeed = 10, letter = "M", posi
 
 		if (dragged) {
 			// @ts-ignore
-			vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera)
+			vec.set(state.pointer.x, state.pointer.y, 0.2).unproject(state.camera)
 			dir.copy(vec).sub(state.camera.position).normalize()
 			vec.add(dir.multiplyScalar(state.camera.position.length()))
 			// biome-ignore lint/complexity/noForEach: <explanation>
@@ -119,26 +119,26 @@ export default function Badge({ maxSpeed = 50, minSpeed = 10, letter = "M", posi
 		curve.points[2].copy(j1Lerped ?? j1.current.translation())
 		curve.points[3].copy(fixed.current.translation())
 		// @ts-ignore
-		band.current.geometry.setPoints(curve.getPoints(32))
+		band.current.geometry.setPoints(curve.getPoints(80))
 
 		// Tilt the card back towards the screen
 		ang.copy(card.current.angvel())
 		rot.copy(card.current.rotation())
-		card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.5, z: ang.z }, false)
+		card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.1, z: ang.z }, false)
 	})
 
 	curve.curveType = "chordal"
 
 	return (
 		<>
-			<group position={[0, 0, 0]}>
+			<group position={[-7, 6, 0]}>
 				{/* Band */}
 				<Center position={[0, 0, 0]}>
 					<RigidBody ref={fixed} type="fixed" position={[position * 2, 0, 0]} />
 					<RigidBody position={[0.1, 0, 0]} {...segmentProps} ref={j1}>
 						<BallCollider args={[0.1]} />
 					</RigidBody>
-					<RigidBody position={[1, 0, 0]} {...segmentProps} ref={j2}>
+					<RigidBody position={[0.1, 0, 0]} {...segmentProps} ref={j2}>
 						<BallCollider args={[0.1]} />
 					</RigidBody>
 					<RigidBody position={[0.5, 0, 0]} {...segmentProps} ref={j3}>
@@ -157,7 +157,7 @@ export default function Badge({ maxSpeed = 50, minSpeed = 10, letter = "M", posi
 					<RigidBody ref={card} {...segmentProps} type={dragged ? "kinematicPosition" : "dynamic"}>
 						<CuboidCollider args={[0.5, 0.8, 0.01]} />
 						<group
-							position={[-0.3, 2.5, 0]}
+							position={[-0.7, 0, 0]}
 							onPointerOver={() => hover(true)}
 							onPointerOut={() => hover(false)}
 							onPointerUp={() => drag(false)}
@@ -172,8 +172,8 @@ export default function Badge({ maxSpeed = 50, minSpeed = 10, letter = "M", posi
 								bevelSize={0.15} // Bevel ajustado para letras más grandes
 								bevelThickness={0.2}
 								position={[0, 0, 0]}
-								// size={1}
-								scale={1}
+								size={2}
+								// scale={1}
 								font="./assets/Inter_bold.json"
 							>
 								{letter.toUpperCase()}
